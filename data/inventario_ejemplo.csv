@@ -1,0 +1,7 @@
+id_producto,nombre,categoria,stock,caducidad,proveedor,envase,certificacion
+P001,Leche entera 1L,Lácteos,50,2025-12-25,ProveedorA,Brick,EU-Ecolabel
+P002,Yogur natural 125g,Lácteos,80,2024-12-01,ProveedorB,Plástico reciclable,
+P003,Manzana Golden 1kg,Fruta,30,2024-11-15,ProveedorC,Malla,
+P004,Pasta integral 500g,Secos,40,2026-03-01,ProveedorD,Plástico,Organic
+P005,Zumo de naranja 1L,Bebidas,25,2026-05-20,ProveedorA,Brick,
+P006,Galletas integrales 300g,Secos,35,2025-05-15,ProveedorE,Cartón,
