@@ -1,0 +1,8 @@
+pandas
+rdflib
+streamlit
+requests
+python-dotenv
+SPARQLWrapper
+pyshacl
+
