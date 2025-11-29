@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.ejemplo.org/inventario"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.ejemplo.org/inventario">
+
+    <!-- #####################
+         Clases
+    ##################### -->
+
+    <Declaration><Class IRI="#Producto"/></Declaration>
+    <Declaration><Class IRI="#Proveedor"/></Declaration>
+    <Declaration><Class IRI="#Inventario"/></Declaration>
+    <Declaration><Class IRI="#CriterioSostenibilidad"/></Declaration>
+    <Declaration><Class IRI="#Reciclable"/></Declaration>
+    <Declaration><Class IRI="#BajoImpactoEnergetico"/></Declaration>
+    <Declaration><Class IRI="#Biodegradable"/></Declaration>
+
+    <SubClassOf>
+        <Class IRI="#Reciclable"/>
+        <Class IRI="#CriterioSostenibilidad"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BajoImpactoEnergetico"/>
+        <Class IRI="#CriterioSostenibilidad"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Biodegradable"/>
+        <Class IRI="#CriterioSostenibilidad"/>
+    </SubClassOf>
+
+    <!-- #####################
+         Propiedades de objeto
+    ##################### -->
+
+    <Declaration><ObjectProperty IRI="#proveedorDe"/></Declaration>
+    <Declaration><ObjectProperty IRI="#tieneStock"/></Declaration>
+    <Declaration><ObjectProperty IRI="#cumpleCriterio"/></Declaration>
+
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#proveedorDe"/>
+        <Class IRI="#Proveedor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#proveedorDe"/>
+        <Class IRI="#Producto"/>
+    </ObjectPropertyRange>
+
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tieneStock"/>
+        <Class IRI="#Inventario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tieneStock"/>
+        <Class IRI="#Producto"/>
+    </ObjectPropertyRange>
+
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#cumpleCriterio"/>
+        <Class IRI="#Producto"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#cumpleCriterio"/>
+        <Class IRI="#CriterioSostenibilidad"/>
+    </ObjectPropertyRange>
+
+    <!-- #####################
+         Propiedades de datos
+    ##################### -->
+
+    <Declaration><DataProperty IRI="#fechaCaducidad"/></Declaration>
+    <Declaration><DataProperty IRI="#cantidadStock"/></Declaration>
+    <Declaration><DataProperty IRI="#precio"/></Declaration>
+
+    <DataPropertyDomain>
+        <DataProperty IRI="#fechaCaducidad"/>
+        <Class IRI="#Producto"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#fechaCaducidad"/>
+        <Datatype IRI="http://www.w3.org/2001/XMLSchema#date"/>
+    </DataPropertyRange>
+
+    <DataPropertyDomain>
+        <DataProperty IRI="#cantidadStock"/>
+        <Class IRI="#Producto"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#cantidadStock"/>
+        <Datatype IRI="http://www.w3.org/2001/XMLSchema#integer"/>
+    </DataPropertyRange>
+
+    <DataPropertyDomain>
+        <DataProperty IRI="#precio"/>
+        <Class IRI="#Producto"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#precio"/>
+        <Datatype IRI="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </DataPropertyRange>
+
+    <!-- #####################
+         Individuos
+    ##################### -->
+
+    <!-- Producto: Leche Eco 1L -->
+    <Declaration><NamedIndividual IRI="#Leche_Eco_1L"/></Declaration>
+    <ClassAssertion><Class IRI="#Producto"/><NamedIndividual IRI="#Leche_Eco_1L"/></ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cantidadStock"/>
+        <NamedIndividual IRI="#Leche_Eco_1L"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">50</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#fechaCaducidad"/>
+        <NamedIndividual IRI="#Leche_Eco_1L"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2025-10-05</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#precio"/>
+        <NamedIndividual IRI="#Leche_Eco_1L"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.20</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cumpleCriterio"/>
+        <NamedIndividual IRI="#Leche_Eco_1L"/>
+        <NamedIndividual IRI="#Reciclable"/>
+    </ObjectPropertyAssertion>
+
+    <!-- Producto: Yogur Bio -->
+    <Declaration><NamedIndividual IRI="#Yogur_Bio"/></Declaration>
+    <ClassAssertion><Class IRI="#Producto"/><NamedIndividual IRI="#Yogur_Bio"/></ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cantidadStock"/>
+        <NamedIndividual IRI="#Yogur_Bio"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">30</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#fechaCaducidad"/>
+        <NamedIndividual IRI="#Yogur_Bio"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2025-09-20</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#precio"/>
+        <NamedIndividual IRI="#Yogur_Bio"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.90</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cumpleCriterio"/>
+        <NamedIndividual IRI="#Yogur_Bio"/>
+        <NamedIndividual IRI="#Reciclable"/>
+    </ObjectPropertyAssertion>
+
+    <!-- Proveedor: AgroSostenibleSA -->
+    <Declaration><NamedIndividual IRI="#AgroSostenibleSA"/></Declaration>
+    <ClassAssertion><Class IRI="#Proveedor"/><NamedIndividual IRI="#AgroSostenibleSA"/></ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#proveedorDe"/>
+        <NamedIndividual IRI="#AgroSostenibleSA"/>
+        <NamedIndividual IRI="#Leche_Eco_1L"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#proveedorDe"/>
+        <NamedIndividual IRI="#AgroSostenibleSA"/>
+        <NamedIndividual IRI="#Yogur_Bio"/>
+    </ObjectPropertyAssertion>
+
+    <!-- Inventario -->
+    <Declaration><NamedIndividual IRI="#Inventario_Principal"/></Declaration>
+    <ClassAssertion><Class IRI="#Inventario"/><NamedIndividual IRI="#Inventario_Principal"/></ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tieneStock"/>
+        <NamedIndividual IRI="#Inventario_Principal"/>
+        <NamedIndividual IRI="#Leche_Eco_1L"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tieneStock"/>
+        <NamedIndividual IRI="#Inventario_Principal"/>
+        <NamedIndividual IRI="#Yogur_Bio"/>
+    </ObjectPropertyAssertion>
+
+</Ontology>
